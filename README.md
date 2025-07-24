@@ -1,1 +1,1 @@
-<img src="sakamoto.gif" width="100%">
+<img src="gachiakuta.webp" width="100%">
