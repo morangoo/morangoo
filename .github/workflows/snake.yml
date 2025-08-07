@@ -13,13 +13,13 @@ jobs:
         uses: Platane/snk@v3.3.0
         with:
           github_user_name: ${{ github.repository_owner }}
-          # O output pode ser SVG ou GIF. Exemplo:
           outputs: |
             dist/github-snake.svg
             dist/github-snake.gif
 
-      - name: Upload snake game to the output branch
-        uses: actions/upload-artifact@v3
+      - name: Push snake game to output branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: snake-game
-          path: dist/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: dist
