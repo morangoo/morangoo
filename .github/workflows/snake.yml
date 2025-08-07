@@ -1,0 +1,25 @@
+name: Generate Snake Game
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Snake Game from GitHub contribution grid
+        uses: Platane/snk@v3.3.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          # O output pode ser SVG ou GIF. Exemplo:
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake.gif
+
+      - name: Upload snake game to the output branch
+        uses: actions/upload-artifact@v3
+        with:
+          name: snake-game
+          path: dist/
