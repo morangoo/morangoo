@@ -1,4 +1,6 @@
 name: Generate Snake Game
+permissions:
+  contents: write
 on:
   schedule: # execute every 12 hours
     - cron: "* */12 * * *"
